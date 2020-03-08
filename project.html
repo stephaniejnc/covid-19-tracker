@@ -5,76 +5,196 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>cmd-f Project</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+<head>
+    <title>Elements Reference - Massively by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Project Description</a>
-					</header>
+<body class="is-preload">
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Symptoms Tracker</a></li>
-							<li><a href="elements.html">Elements Reference</a></li>
-							<li><a href="temp_playground.html">Playground</a></li>
-							<li class="active"><a href="project.html">Project</a></li>
-			
+    <!-- Wrapper -->
+    <div id="wrapper">
 
-						</ul>
-						<ul class="icons">
-							<li><a href="https://twitter.com/hashtag/coronavirus?lang=en" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="https://github.com/stephaniejnc/covid-19-tracker" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">COVID-19 Tracker</a>
+        </header>
 
-                    <div id="main">
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="generic.html">Calendar</a></li>
+                <li><a href="elements.html">Elements Reference</a></li>
+                <li><a href="temp_playground.html">Playground</a></li>
+                <li class="active"><a href="project.html">Project</a></li>
 
-                    <!-- Preformatted Code -->
-                    <h3>This project was created for UBC's cmd-f hackathon, 2020 :)</h3>
-                    <p>Hello! We're a team of second-year UBC students with the goal of making a self-reporting COVID-19 symptoms tracker
-                        for the everyday citizen. Since not all people have access to on-demand healthcare, or might not have travelled (but still 
-                        want to be aware of potential symptoms), anybody can log their symptoms onto a personal Google Calendar for both personal 
-                        and professional records if needed. Our web application features:
-                    </p>
+            </ul>
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h2>COVID-19 Tracker Project</h2>
+                </header>
+                <h3>This project was created for UBC's cmd-f hackathon, 2020 :)</h3>
+                <h4>Serena Shen, Stephanie Chen, Grace Zhang, Alisa Yang</h4>
+                <p>Hello! We're a team of UBC students with the goal of making a self-reporting COVID-19
+                    symptoms tracker
+
+                    for the everyday citizen. Since not all people have access to on-demand healthcare, or might not
+                    have travelled (but still
+
+                    want to be aware of potential symptoms), anybody can log their symptoms onto a personal Google
+                    Calendar for both personal
+
+                    and professional records if needed. Our web application features:
+
                     <ul>
-                        <li>Most recent news</li>
-                        <li>Sagittis lorem eleifend.</li>
-                        <li>Felis feugiat dolore viverra.</li>
-                        <li>Dolor pulvinar etiam.</li>
+
+                        <li>Most recent news, specific to your location (data scraping with Python)</li>
+                        <li>Ability to add symptoms (duration, symptom, and severity) to Google Calendar (Google API and
+                            request handling)</li>
+                        <li>Real-time graph of recent symptoms (using JavaScript)</li>
+                        <li>Option to save graph and/calendar as PDF and send it to a medical professional</li>
+
                     </ul>
-                    <h2>Preformatted</h2>
 
-                    <pre><code>i = 0;
+                    <p>To graph each date and severity level for a specific symptom, our code grabs the input form info
+                        and updates the arrays
+                        that control the scatterplots:
+                    </p>
+
+                    <pre><code>
+
+        startDate = document.getElementById("startDate").value;
+	endDate = document.getElementById("endDate").value;
+	symptom = document.getElementById("symptom").value;
+	severity = document.getElementById("severity").value;
+
+	if (symptom == 'coughing') {
+		Coughing.x.push(startDate);
+		Coughing.y.push(severity);
+	} else if (symptom == 'sneezing') {
+		Sneezing.x.push(startDate);
+		Sneezing.y.push(severity);
+	} else if (symptom == 'headache') {
+		Headache.x.push(startDate);
+		Headache.y.push(severity);
+	} else if (symptom == 'feverish') {
+		Fever.x.push(startDate);
+		Fever.y.push(severity);
+	} 
+
+	Plotly.update('myDiv', data, layout);
+                                    </code></pre>
 
 
-                        while (!deck.isInOrder()) {
+                    <h3>Icons</h3>
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                        <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                    </ul>
+                    <ul class="icons alt">
+                        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands alt fa-github"><span class="label">Github</span></a></li>
+                        <li><a href="#" class="icon brands alt fa-dribbble"><span class="label">Dribbble</span></a></li>
+                    </ul>
 
-                            print 'Iteration ' + i;
-
-                            deck.shuffle();
-
-                            i++;
-
-                        }
+        </div>
+    </div>
 
 
 
-                        print 'It took ' + i + ' iterations to sort the deck.';
-
-                    </code></pre>
-
+    <!-- Footer -->
+    <footer id="footer">
+        <section>
+            <form method="post" action="#">
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" />
                     </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" />
+                    </div>
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" rows="3"></textarea>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Send Message" /></li>
+                </ul>
+            </form>
+        </section>
+        <section class="split contact">
+            <section class="alt">
+                <h3>Address</h3>
+                <p>1234 Somewhere Road #87257<br />
+                    Nashville, TN 00000-0000</p>
+            </section>
+            <section>
+                <h3>Phone</h3>
+                <p><a href="#">(000) 000-0000</a></p>
+            </section>
+            <section>
+                <h3>Email</h3>
+                <p><a href="#">info@untitled.tld</a></p>
+            </section>
+            <section>
+                <h3>Social</h3>
+                <ul class="icons alt">
+                    <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </section>
+        </section>
+    </footer>
+
+    <!-- Copyright -->
+    <div id="copyright">
+        <ul>
+            <li>&copy; Untitled</li>
+            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
