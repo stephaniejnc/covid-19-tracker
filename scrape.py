@@ -18,7 +18,7 @@ for y in url_list:
 
 URL_post = 'https://stephaniejnc.github.io/covid-19-tracker/'
 post = BeautifulSoup(URL_post, 'html.parser')
-data_loc = soup.find('h2', id='soup_data')
+data_loc = soup.find('section', class_='posts')
 
 print(data_loc)
 
