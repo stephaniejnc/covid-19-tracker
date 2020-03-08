@@ -1,8 +1,7 @@
 import requests
+import json
 import lxml.html as lh
 from bs4 import BeautifulSoup
-
-number_of_articles = 10
 URL = 'https://www.reuters.com/search/news?sortBy=date&dateRange=all&blob=coronavirus'
 #creates handle / page to handle the content 
 page = requests.get(URL)
@@ -23,4 +22,3 @@ for y in url_list:
 for y in final_url:
     print(y)
 
-   
