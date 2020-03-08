@@ -20,7 +20,7 @@ URL_post = 'https://stephaniejnc.github.io/covid-19-tracker/'
 page2 = requests.get(URL_post)
 
 post = BeautifulSoup(page2.content, 'html.parser')
-data_loc = soup.find_all('h2', id='soup_data')
+data_loc = soup.find_all('h2', class_='soup_data')
 
 print(data_loc)
 
