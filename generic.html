@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 </head>
 
 <body class="is-preload">
@@ -27,15 +28,15 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul class="links">
-				<li><a href="index.html">This is Massively</a></li>
+				<li><a href="index.html">News + Cases</a></li>
 				<li class="active"><a href="generic.html">Symptoms Tracker</a></li>
 				<li><a href="elements.html">Elements Reference</a></li>
 			</ul>
 			<ul class="icons">
-				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="https://twitter.com/hashtag/coronavirus?lang=en" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+				<li><a href="https://github.com/stephaniejnc/covid-19-tracker" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 			</ul>
 		</nav>
 
@@ -46,17 +47,21 @@
 			<section class="post">
 				<header class="major">
 					<!-- <span class="date">April 25, 2017</span> -->
-					<h1>
-						Symptoms Calendar</h1>
+					<h2>
+						Symptoms Calendar</h2>
 					<p>Here, you can insert any symptoms you may have so your doctor will have a timeline of your health
 						record.</p>
 				</header>
-				<p>Google Calendar API Quickstart</p>
+				<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+
+				<!-- <p>Google Calendar API Quickstart</p> -->
 				<!--Add buttons to initiate auth sequence and sign out-->
 				<button id="authorize_button" style="display: none;">Authorize</button>
-				<button id="signout_button" style="display: none;">Sign Out</button>
+				<!-- <button id="signout_button" style="display: none;">Sign Out</button> -->
 				<pre id="content" style="white-space: pre-wrap;"></pre>
-				<button onclick="insertCalendarEvent()">Add Event</button> &nbsp; &nbsp; &nbsp;
+				<!-- <button onclick="insertCalendarEvent()">Add Event</button> &nbsp; &nbsp; &nbsp; -->
+				<button id="signout_button">Sign Out</button>
+				<pre id="content" style="white-space: pre-wrap;"></pre>
 				<button onclick="getFormValue()">Submit Event</button>
 
 				<pre id="content" style="white-space: pre-wrap;"></pre>
@@ -100,8 +105,48 @@
 				<pre id="content" style="white-space: pre-wrap;"></pre>
 				<pre id="content" style="white-space: pre-wrap;"></pre>
 
-
 				<script type="text/javascript">
+					var Coughing = {
+  						x: [1, 2, 3, 4],
+  						y: [10, 15, 13, 17],
+  						type: 'scatter',
+						name: 'Coughing'
+					};
+
+					var Sneezing = {
+  						x: [1, 2, 3, 4],
+  						y: [16, 5, 11, 9],
+  						type: 'scatter',
+						name: 'Sneezing'
+					};
+
+					var Headache = {
+  						x: [1, 2, 3, 4],
+  						y: [7, 5, 3, 2],
+  						type: 'scatter',
+						name: 'Headache'
+					};
+
+					var Fever = {
+  						x: [1, 2, 3, 4],
+  						y: [2, 5, 6, 11],
+  						type: 'scatter',
+						name: 'Fever'
+					};
+
+					var data = [Coughing, Sneezing, Headache, Fever];
+
+					var layout = {
+  						title: 'Trends of Recent Symptoms',
+  						xaxis: {
+    						title: 'Time'
+  						},
+  						yaxis: {
+    						title: 'Severity'
+  						}
+					};
+
+					Plotly.newPlot('myDiv', data, layout);
 
 					// Start date, end date, and symptom 
 					var startDate;
@@ -327,6 +372,9 @@
 <iframe 
 	id='calendar'
 	src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FVancouver&amp;src=c3RlcGhhbmllY2hlbjA2MzBAZ21haWwuY29t&amp;src=MmxrazB1YjUxNXY4cGo0dWdncnBlZHJ2ZGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%237986CB&amp;color=%23EF6C00&amp;color=%230B8043&amp;title=COVID-19%20Symptoms" style="border:solid 1px #777" width="850" height="600" frameborder="0" scrolling="no"></iframe>
+
+	<pre id="content" style="white-space: pre-wrap;"></pre>
+
 </body>
 
 
@@ -353,7 +401,7 @@
 				</div>
 				<div class="field">
 					<label for="message">Message</label>
-					<textarea name="message" id="message" rows="3"></textarea>
+					<textarea name="message" id="message" rows="3" placeholder="Hello, I've had these symptoms for X weeks now and I'm a bit concerned. Can I schedule an appointment with you as soon as possible?"></textarea>
 				</div>
 			</div>
 			<ul class="actions">
