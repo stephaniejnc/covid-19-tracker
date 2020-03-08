@@ -1,5 +1,4 @@
 import requests
-import json
 import lxml.html as lh
 from bs4 import BeautifulSoup
 URL = 'https://www.reuters.com/search/news?sortBy=date&dateRange=all&blob=coronavirus'
@@ -11,14 +10,19 @@ table_soup = soup.find_all('h3', class_='search-result-title')
 url_list = soup.select('.search-result a')
 final_url = []
 
-for x in table_soup:
-    print(x.get_text())
-
 for y in url_list:
     if "/article/id" in str(y):
         final_url.append("www.reuters.com" + y.get('href'))
     
 
-for y in final_url:
-    print(y)
 
+URL_post = 'https://stephaniejnc.github.io/covid-19-tracker/'
+post = BeautifulSoup(URL_post, 'html.parser')
+data_loc = soup.find('h2', class_='soup_data')
+
+print(data_loc)
+
+
+# Open index.html with Beautiful soup
+# Select location in index.html
+# Append final_url content into location
