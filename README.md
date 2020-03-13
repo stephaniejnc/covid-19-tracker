@@ -1,3 +1,6 @@
+![homescreen banner](/screenshots/homepage.png)
+
+### Submitted for UBC cmd-f Hackathon, Top 5 Finalist + Wolfram Alpha Award
 ## Inspiration
 Hello! We're a team of UBC students with the goal of making a self-reporting COVID-19 symptoms tracker for the everyday citizen. Not all people have access to on-demand healthcare, or might not have traveled (but still want to be aware of potential symptoms), anybody can log their symptoms onto a personal Google Calendar for both personal and professional records if needed. These record could help doctors provide a more accurate diagnosis. 
 
@@ -7,6 +10,12 @@ Our web application features:
 - Ability to add symptoms (duration, symptom, and severity) to Google Calendar (Google API and request handling)
 - Real-time graph of recent symptoms (using JavaScript)
 - Option to save graph and/calendar as PDF and send it to a medical professional
+
+![newsfeed](/screenshots/news.png)
+![form](/screenshots/form.png)
+![graph](/screenshots/graph.png)
+![calendar](/screenshots/calendar.png)
+
 
 ## How I built it
 We used HTML5 and CSS for the basic website frame, then on the Symptoms Tracker page, we used Google Calendar API to pull and send event requests with Javascript. For the timeline/symptoms scatterplot, we used the Plot.ly library and using Javascript, every event submitted on the form would update the graph!
