@@ -1,32 +1,21 @@
-Massively by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+## Inspiration
+Hello! We're a team of UBC students with the goal of making a self-reporting COVID-19 symptoms tracker for the everyday citizen. Not all people have access to on-demand healthcare, or might not have traveled (but still want to be aware of potential symptoms), anybody can log their symptoms onto a personal Google Calendar for both personal and professional records if needed. These record could help doctors provide a more accurate diagnosis. 
 
+## What it does
+Our web application features:
+- Most recent news, specific to your location (data scraping with Python)
+- Ability to add symptoms (duration, symptom, and severity) to Google Calendar (Google API and request handling)
+- Real-time graph of recent symptoms (using JavaScript)
+- Option to save graph and/calendar as PDF and send it to a medical professional
 
-This is Massively, a text-heavy, article-oriented design built around a huge background
-image (with a new parallax implementation I'm testing) and scroll effects (powered by
-Scrollex). A *slight* departure from all the one-pagers I've been doing lately, but one
-that fulfills a few user requests and makes use of some new techniques I've been wanting
-to try out. Enjoy it :)
+## How I built it
+We used HTML5 and CSS for the basic website frame, then on the Symptoms Tracker page, we used Google Calendar API to pull and send event requests with Javascript. For the timeline/symptoms scatterplot, we used the Plot.ly library and using Javascript, every event submitted on the form would update the graph!
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+## Challenges I ran into
+Connecting Google API is always a challenge, so that took a while. It was our first time using JavaScript, so there was a lot of learning! We also wanted to use Beautiful Soup and Python to customize the homepage news to the user's location but was unable to finish that in time. 
 
-(* = not included)
+## Accomplishments that I'm proud of
+Honestly, thinking of an idea and executing it, and then demoing the project as a fully functioning web application within a span of 24 hours! 
 
-AJ
-aj@lkn.io | @ajlkn
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+## What's next for COVID-19 Symtoms Tracker
+Fetching all users' data and have a generic analysis of most common symptoms and their respective timelines, finding the nearest doctor/health clinic, and custom web scraping with Beautiful Soup for the newsfeed.
