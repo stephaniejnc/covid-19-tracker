@@ -1,6 +1,7 @@
 ![homescreen banner](/screenshots/homepage.png)
 
 ### Submitted for UBC cmd-f Hackathon, Top 5 Finalist + Wolfram Alpha Award
+##### stephaniejnc.github.io/covid-19-tracker
 ## Inspiration
 Hello! We're a team of UBC students with the goal of making a self-reporting COVID-19 symptoms tracker for the everyday citizen. Not all people have access to on-demand healthcare, or might not have traveled (but still want to be aware of potential symptoms), anybody can log their symptoms onto a personal Google Calendar for both personal and professional records if needed. These record could help doctors provide a more accurate diagnosis. 
 
@@ -27,4 +28,4 @@ Connecting Google API is always a challenge, so that took a while. It was our fi
 Honestly, thinking of an idea and executing it, and then demoing the project as a fully functioning web application within a span of 24 hours! 
 
 ## What's next for COVID-19 Symtoms Tracker
-Fetching all users' data and have a generic analysis of most common symptoms and their respective timelines, finding the nearest doctor/health clinic, and custom web scraping with Beautiful Soup for the newsfeed.
+Fetching all users' data and have a generic analysis of most common symptoms and their respective timelines, finding the nearest doctor/health clinic, and custom web scraping with Beautiful Soup for the newsfeed. Currently, if you try it out on stephaniejnc.github.io/covid-19-tracker, it's only configured to display my calendar (as everyone has a unique Google Calendar ID and embed code!)
